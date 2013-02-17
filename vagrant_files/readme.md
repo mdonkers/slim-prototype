@@ -1,0 +1,26 @@
+This file describes how to setup the Vagrant box, to make sure testing en running the necessary virtual machine works simply by executing a Maven command.
+
+Make sure Ruby 1.9.2, Vagrant and VeeWee are installed (preferrably using RVM)
+
+Steps:
+
+1) Optionally place the necessary ISO file in the iso subdirectory. Otherwise it will be automatically downloaded.
+
+2) Build the virtual box. Use '--force' to overwrite an existing install.
+$ veewee vbox build 'debianbox'
+
+3) Validate that the box was created successfully.
+$ veewee vbox validate 'debianbox'
+
+4) Export the box (creates a '.box' file).
+$ vagrant basebox export 'debianbox'
+
+5) Import the box so that Vagrant can find it and can create instances.
+$ vagrant box add 'debianbox' 'debianbox.box'
+
+
+Now your all set to go. Normally you would need to init the Vagrant box but this is done already.
+
+To separately run the VM, execute the following commands:
+$ vagrant up
+$ vagrant ssh
