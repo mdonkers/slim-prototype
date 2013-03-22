@@ -20,4 +20,12 @@
         <module>pissalot-rest</module>
         <module>pissalot-web</module>
     </modules>
+
+    <!-- Dependency management -->
+    <dependencyManagement>
+
+    </dependencyManagement>
+
+
+
 </project>
