@@ -9,13 +9,15 @@ Steps:
 2) Build the virtual box. Use '--force' to overwrite an existing install.
 $ veewee vbox build 'debianbox'
 
-3) Validate that the box was created successfully.
+3) Validate that the box was created successfully. (ignore Chef as we don't install it)
 $ veewee vbox validate 'debianbox'
 
-4) Export the box (creates a '.box' file).
+4) Shutdown VM, login with vagrant / vagrant.
+
+5) Export the box (creates a '.box' file).
 $ vagrant basebox export 'debianbox'
 
-5) Import the box so that Vagrant can find it and can create instances.
+6) Import the box so that Vagrant can find it and can create instances.
 $ vagrant box add 'debianbox' 'debianbox.box'
 
 
@@ -24,3 +26,4 @@ Now your all set to go. Normally you would need to init the Vagrant box but this
 To separately run the VM, execute the following commands:
 $ vagrant up
 $ vagrant ssh
+

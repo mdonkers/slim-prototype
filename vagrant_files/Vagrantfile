@@ -39,7 +39,7 @@ Vagrant::Config.run do |config|
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
   # You will need to create the manifests directory and a manifest in
-  # the file debianbox.pp in the manifests_path directory.
+  # the file default.pp in the manifests_path directory.
   #
   # An example Puppet manifest to provision the message of the day:
   #
@@ -54,10 +54,13 @@ Vagrant::Config.run do |config|
   # #               Managed by Puppet.\n"
   # # }
   #
+  # Use this config to specify a specific manifest file, otherwise 'default.pp' is used.
   # config.vm.provision :puppet do |puppet|
   #   puppet.manifests_path = "manifests"
   #   puppet.manifest_file  = "debianbox.pp"
   # end
+  
+  config.vm.provision :puppet
 
   # Enable provisioning with chef solo, specifying a cookbooks path, roles
   # path, and data_bags path (all relative to this Vagrantfile), and adding 
