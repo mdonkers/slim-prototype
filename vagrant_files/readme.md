@@ -21,9 +21,12 @@ $ vagrant basebox export 'debianbox'
 $ vagrant box add 'debianbox' 'debianbox.box'
 
 
-Now your all set to go. Normally you would need to init the Vagrant box but this is done already.
+Now you're all set to go. Normally you would need to init the Vagrant box but this is done already.
 
 To separately run the VM, execute the following commands:
 $ vagrant up
 $ vagrant ssh
+
+To reload (re-provision) the VM, execute the following command:
+$ vagrant reload
 

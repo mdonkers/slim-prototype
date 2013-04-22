@@ -59,8 +59,26 @@ Vagrant::Config.run do |config|
   #   puppet.manifests_path = "manifests"
   #   puppet.manifest_file  = "debianbox.pp"
   # end
-  
-  config.vm.provision :puppet
+
+#  config.vm.provision :puppet
+
+#  Vagrant::Config.run do |config|
+#    config.vm.provision :puppet, :module_path => "modules"
+#  end
+
+  config.vm.provision :shell, :inline => "[ -f /tmp/updated ] || apt-get update && touch /tmp/updated"
+  config.vm.provision :puppet do |puppet|
+    puppet.manifests_path = "puppet_manifests"
+    puppet.module_path = "puppet_modules"
+    puppet.manifest_file = "default.pp"
+    puppet.options = "--verbose"
+  end
+
+#  config.vm.define :couchdb do |couchdb_config|
+#    couchdb_config.vm.host_name = "couchdb"
+#    couchdb_config.vm.network :hostonly, "192.168.33.10"
+#    couchdb_config.vm.forward_port 5984, 5984
+#  end
 
   # Enable provisioning with chef solo, specifying a cookbooks path, roles
   # path, and data_bags path (all relative to this Vagrantfile), and adding 
