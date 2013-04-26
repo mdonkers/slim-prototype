@@ -6,7 +6,7 @@ node default {
   notify {"Starting installation of CouchDB.":}
 
   class { 'couchdb':
-    bind => '0.0.0.0'
+    bind => '10.10.10.101'
   }
 
 }

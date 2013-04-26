@@ -15,6 +15,7 @@ Veewee::Definition.declare({
     'auto ',
     'locale=en_US ',
     'kbd-chooser/method=us ',
+    'netcfg/choose_interface=eth0 ',
     'netcfg/get_hostname=%NAME% ',
     'netcfg/get_domain=vagrantup.com ',
     'fb=false ',
@@ -44,5 +45,14 @@ Veewee::Definition.declare({
     "cleanup.sh",
     "zerodisk.sh"
   ],
-  :postinstall_timeout => "10000"
+  :postinstall_timeout => "10000",
+  :virtualbox => {
+    :vm_options => [
+      'nic2' => 'hostonly',
+      'hostonlyadapter2' => 'vboxnet0',
+      'macaddress2' => 'C42C030196E1',
+      'nic1' => 'nat',
+    ]
+  }
+  
 })

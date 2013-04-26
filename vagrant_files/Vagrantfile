@@ -27,6 +27,8 @@ Vagrant::Config.run do |config|
   # physical device on your network.
   # config.vm.network :bridged
 
+  config.vm.network :hostonly, "10.10.10.101", :adapter => "2", :mac => "C42C030196E1"
+
   # Forward a port from the guest to the host, which allows for outside
   # computers to access the VM, whereas host only networking does not.
   # config.vm.forward_port 80, 8080
