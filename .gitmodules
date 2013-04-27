@@ -1,0 +1,3 @@
+[submodule "vagrant_files/puppet_modules/couchdb"]
+	path = vagrant_files/puppet_modules/couchdb
+	url = https://github.com/bdossantos/puppet-module-couchdb.git
