@@ -20,6 +20,9 @@ $ vagrant basebox export 'debianbox'
 6) Import the box so that Vagrant can find it and can create instances.
 $ vagrant box add 'debianbox' 'debianbox.box'
 
+7) The git submodules should be loaded in the project (from git repo root)
+$ git submodule update --init --recursive
+
 
 Now you're all set to go. Normally you would need to init the Vagrant box but this is done already.
 
