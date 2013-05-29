@@ -7,8 +7,8 @@ import play.api.libs.json.Json._
 
 object Application extends Controller {
 
-  def index = Action {
-    Ok(views.html.index("Your new application is ready."))
+  def index(path: String) = Action {
+    Ok(views.html.main())
   }
 
   def users = Action {

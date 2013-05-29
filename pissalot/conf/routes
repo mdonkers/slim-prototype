@@ -3,12 +3,16 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index
+GET    /                            controllers.Application.index(path = "")
+GET    /:path                       controllers.Application.index(path)
+# NOTE: Routing with the '*' does not work correctly when serving the page. For now disabled and only serve
+# two segments.
+#GET   /*page                    controllers.Application.index(page)
 
 # Pissalot Users
-GET     /users                  controllers.Application.users
-POST    /users                  controllers.Application.newUser
-POST    /users/:id/delete       controllers.Application.deleteUser(id: Long)
+GET    /rest/users                  controllers.Application.users
+POST   /rest/users                  controllers.Application.newUser
+POST   /rest/users/:id/delete       controllers.Application.deleteUser(id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET    /assets/*file                controllers.Assets.at(path="/public", file)
