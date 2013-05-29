@@ -13,20 +13,33 @@ import play.api.test.Helpers._
 class ApplicationSpec extends Specification {
   
   "Application" should {
-    
-    "send 404 on a bad request" in {
+
+    "return json when requesting all users" in {
       running(FakeApplication()) {
-        route(FakeRequest(GET, "/boum")) must beNone        
+        val home = route(FakeRequest(GET, "/rest/users")).get
+
+        status(home) must equalTo(OK)
+        contentType(home) must beSome.which(_ == "application/json")
+        contentAsString(home) must contain ("miel")
+        contentAsString(home) must contain ("hylke")
       }
     }
-    
-    "render the index page" in {
+
+    "render the index page for any other url" in {
       running(FakeApplication()) {
         val home = route(FakeRequest(GET, "/")).get
         
         status(home) must equalTo(OK)
         contentType(home) must beSome.which(_ == "text/html")
-        contentAsString(home) must contain ("Your new application is ready.")
+        contentAsString(home) must contain ("Pissalot Application")
+      }
+
+      running(FakeApplication()) {
+        val home = route(FakeRequest(GET, "/some/random/url")).get
+
+        status(home) must equalTo(OK)
+        contentType(home) must beSome.which(_ == "text/html")
+        contentAsString(home) must contain ("Pissalot Application")
       }
     }
   }

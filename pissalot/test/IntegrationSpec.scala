@@ -14,11 +14,13 @@ class IntegrationSpec extends Specification {
   "Application" should {
     
     "work from within a browser" in {
-      running(TestServer(3333), HTMLUNIT) { browser =>
+      running(TestServer(9001), HTMLUNIT) { browser =>
 
-        browser.goTo("http://localhost:3333/")
+        browser.goTo("http://localhost:9001/")
 
-        browser.pageSource must contain("Your new application is ready.")
+        browser.pageSource must contain("Pissalot Application")
+
+        browser.pageSource must contain("angular.min.js")
        
       }
     }
