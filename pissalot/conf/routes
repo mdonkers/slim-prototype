@@ -2,17 +2,16 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-GET    /                            controllers.Application.index(path = "")
-GET    /:path                       controllers.Application.index(path)
-# NOTE: Routing with the '*' does not work correctly when serving the page. For now disabled and only serve
-# two segments.
-#GET   /*page                    controllers.Application.index(page)
+# Map static resources from the /public folder to the /assets URL path
+GET    /assets/*file                controllers.Assets.at(path="/public", file)
+
 
 # Pissalot Users
 GET    /rest/users                  controllers.Application.users
 POST   /rest/users                  controllers.Application.newUser
 POST   /rest/users/:id/delete       controllers.Application.deleteUser(id: Long)
 
-# Map static resources from the /public folder to the /assets URL path
-GET    /assets/*file                controllers.Assets.at(path="/public", file)
+
+# Home page, maps to all other uri's
+GET    /                            controllers.Application.index(path = "")
+GET    /*path                       controllers.Application.index(path)
