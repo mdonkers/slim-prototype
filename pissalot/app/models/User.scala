@@ -18,6 +18,7 @@ object User {
 
     def writes(u: User): JsValue = {
       Json.obj(
+        "id" -> u.id,
         "name" -> u.name,
         "email" -> u.email
       )
