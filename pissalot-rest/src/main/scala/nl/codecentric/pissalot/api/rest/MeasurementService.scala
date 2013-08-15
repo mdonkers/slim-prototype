@@ -5,6 +5,8 @@ import org.scalatra.json.NativeJsonSupport
 import org.scalatra.swagger.{Swagger, SwaggerSupport}
 import org.json4s.{DefaultFormats, Formats}
 import javax.xml.bind.annotation.XmlRootElement
+import org.joda.time.LocalDateTime
+import nl.codecentric.pissalot.model.Measurement
 
 /**
  *
@@ -31,13 +33,11 @@ class MeasurementService(implicit val swagger: Swagger) extends ScalatraServlet 
     )
 
   get("/",operation(get)) {
-    new Measurement(34545)
+    Measurement(user=None,bowl=null,start=new LocalDateTime(),end=new LocalDateTime())
   }
 
   post("/bla",operation(get)) {
-    new Measurement(435)
+    Measurement(user=None,bowl=null,start=new LocalDateTime(),end=new LocalDateTime())
   }
+  
 }
-
-@XmlRootElement
-case class Measurement(var timeInSeconds: Int)

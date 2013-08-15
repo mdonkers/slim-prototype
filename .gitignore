@@ -3,3 +3,10 @@ work
 
 *.iml
 .idea
+
+.metadata/
+.cache
+.classpath
+.project
+.settings/
+
