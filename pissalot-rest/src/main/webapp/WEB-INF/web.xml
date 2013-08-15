@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+    <!--
+    <filter>
+        <filter-name>MeasurementFilter</filter-name>
+        <filter-class>nl.codecentric.pissalot.api.rest.MeasurementService</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>MeasurementFilter</filter-name>
+        <url-pattern>/rest/*</url-pattern>
+    </filter-mapping>  -->
+
+    <listener>
+        <listener-class>org.scalatra.servlet.ScalatraListener</listener-class>
+    </listener>
+
+
+</web-app>
