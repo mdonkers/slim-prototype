@@ -23,9 +23,7 @@
 
     <!-- modules -->
     <modules>
-        <module>pissalot-core</module>
         <module>pissalot-rest</module>
-        <module>pissalot-web</module>
     </modules>
 
     <!-- Dependency management -->

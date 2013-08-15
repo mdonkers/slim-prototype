@@ -1,4 +1,4 @@
-package nl.codecentric.pissalot.core.model;
+package nl.codecentric.pissalot.model;
 
 import java.util.Calendar;
 
