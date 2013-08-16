@@ -15,6 +15,7 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   - npm install --quiet -g karma
   - npm install --quiet -g karma-firefox-launcher
+  - npm install --quiet -g karma-ng-scenario
   - ./pissalot-angular/scripts/web-server.js > /dev/null &
   - sleep 1 # give server time to start
 
