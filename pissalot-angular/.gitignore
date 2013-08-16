@@ -1,2 +1,3 @@
 coverage/
 test-results.xml
+test-results-e2e.xml
