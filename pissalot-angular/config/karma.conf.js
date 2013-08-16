@@ -7,7 +7,6 @@ module.exports = function (config) {
         files: [
             'app/lib/angular/angular.js',
             'app/lib/angular/angular-*.js',
-            'app/lib/ingglobal/global.js',
             'test/lib/angular/angular-mocks.js',
             'app/js/*.js',
             'app/js/**/*.js',
@@ -42,7 +41,8 @@ module.exports = function (config) {
             'karma-jasmine',
             'karma-junit-reporter',
             'karma-coverage',
-            'karma-chrome-launcher'
+            'karma-chrome-launcher',
+            'karma-firefox-launcher'
         ]
 
     });

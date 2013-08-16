@@ -27,7 +27,8 @@ module.exports = function (config) {
         plugins: [
             'karma-ng-scenario',
             'karma-junit-reporter',
-            'karma-chrome-launcher'
+            'karma-chrome-launcher',
+            'karma-firefox-launcher'
         ]
 
     });
