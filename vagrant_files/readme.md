@@ -25,6 +25,7 @@ $ git submodule update --init --recursive
 
 
 Now you're all set to go. Normally you would need to init the Vagrant box but this is done already.
+CouchDB can be reached on 10.10.10.101:5984, admin console on http://10.10.10.101:5984/_utils
 
 To separately run the VM, execute the following commands:
 $ vagrant up

@@ -20,10 +20,7 @@ scalaVersion := "2.10.0"
 
 crossScalaVersions := Seq(
   "2.9.3-RC1",
-  "2.9.2",
-  "2.9.1", "2.9.1-1",
-  "2.9.0", "2.9.0-1",
-  "2.8.0", "2.8.1", "2.8.2"
+  "2.9.2"
 )
 
 scalacOptions ++= Seq(
@@ -113,7 +110,12 @@ seq(jsSettings : _*)
 
 //(test in Test) <<= (test in Test) dependsOn (jasmine)
 
+resolvers += "sprouch repo" at "http://kimstebel.github.com/sprouch/repository"
+
+resolvers += "spray repo" at "http://repo.spray.io"
+
 libraryDependencies ++= Seq(
+  "sprouch" % "sprouch_2.10" % "0.5.11",
   "org.scalatra" %% "scalatra" % "2.2.1",
   "org.scalatra" %% "scalatra-scalate" % "2.2.1",
   "org.scalatra" %% "scalatra-scalatest" % "2.2.1" % "test",
