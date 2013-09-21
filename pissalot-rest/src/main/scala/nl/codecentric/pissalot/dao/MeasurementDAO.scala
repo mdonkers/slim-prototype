@@ -3,6 +3,8 @@ package nl.codecentric.pissalot.dao
 import spray.json.DefaultJsonProtocol
 import nl.codecentric.pissalot.model.Measurement
 import scala.concurrent.ExecutionContext
+import akka.actor.IOManager.Settings
+import com.typesafe.config.ConfigFactory
 
 /**
  *
@@ -30,11 +32,13 @@ object MeasurementDAO extends App {
 
     implicit val measurementFormat = DefaultJsonProtocol.jsonFormat3(Measurement)
 
+    val conf = ConfigFactory.load()
+
     val config2 = Config(
       actorSystem,
-      hostName = "localhost",
-      port = 5984,
-      userPass = Some("admin" -> "admin"),
+      hostName = conf.getString("hostname"),
+      port = conf.getInt("port"),
+      userPass = Some(conf.getString("username") -> conf.getString("password")),
       https = false
     )
 
