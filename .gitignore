@@ -10,4 +10,5 @@ out/
 .classpath
 .project
 .settings/
+.history
 
