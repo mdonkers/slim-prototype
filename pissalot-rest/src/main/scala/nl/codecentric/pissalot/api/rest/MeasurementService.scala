@@ -7,6 +7,7 @@ import org.json4s.{DefaultFormats, Formats}
 import javax.xml.bind.annotation.XmlRootElement
 import org.joda.time.LocalDateTime
 import nl.codecentric.pissalot.model.Measurement
+import nl.codecentric.pissalot.dao.MeasurementDAO
 
 /**
  *
@@ -19,7 +20,7 @@ class MeasurementService(implicit val swagger: Swagger) extends ScalatraServlet 
   protected implicit val jsonFormats: Formats = DefaultFormats
 
   override protected val applicationName = Some("measurement")
-  protected val applicationDescription = "The flowershop API. It exposes operations for browsing and searching lists of flowers, and retrieving single flowers."
+  protected val applicationDescription = "Measurement service allow you to add new measurements"
 
 
   before() {
@@ -32,12 +33,14 @@ class MeasurementService(implicit val swagger: Swagger) extends ScalatraServlet 
     parameter queryParam[Option[String]]("").description("none")
     )
 
-  get("/",operation(get)) {
-    Measurement(user=None,bowl=null,start=new LocalDateTime(),end=new LocalDateTime())
+  get("/", operation(get)) {
+    Measurement("sensor-1", System.currentTimeMillis(), 30000L)
   }
 
-  post("/bla",operation(get)) {
-    Measurement(user=None,bowl=null,start=new LocalDateTime(),end=new LocalDateTime())
+  post("/", operation(get)) {
+    val m = parsedBody.extract[Measurement]
+    MeasurementDAO.add(m)
+    "Something happened"
   }
-  
+
 }

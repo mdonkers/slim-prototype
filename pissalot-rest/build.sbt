@@ -113,7 +113,12 @@ seq(jsSettings : _*)
 
 //(test in Test) <<= (test in Test) dependsOn (jasmine)
 
+resolvers += "sprouch repo" at "http://kimstebel.github.com/sprouch/repository"
+
+resolvers += "spray repo" at "http://repo.spray.io"
+
 libraryDependencies ++= Seq(
+  "sprouch" % "sprouch_2.10" % "0.5.11",
   "org.scalatra" %% "scalatra" % "2.2.1",
   "org.scalatra" %% "scalatra-scalate" % "2.2.1",
   "org.scalatra" %% "scalatra-scalatest" % "2.2.1" % "test",
@@ -129,3 +134,6 @@ libraryDependencies ++= Seq(
   "org.eclipse.jetty.orbit" % "javax.servlet" % "3.0.0.v201112011016" % "container;provided;test" artifacts (Artifact("javax.servlet", "jar", "jar"))
 )
 
+ideaExcludeFolders += ".idea"
+
+ideaExcludeFolders += ".idea_modules"
