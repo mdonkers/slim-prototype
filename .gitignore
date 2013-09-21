@@ -1,5 +1,6 @@
-target
-work
+target/
+work/
+out/
 
 *.iml
 .idea

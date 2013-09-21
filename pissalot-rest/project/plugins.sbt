@@ -10,3 +10,4 @@ addSbtPlugin("com.untyped" %% "sbt-js" % "0.5")
 
 addSbtPlugin("com.untyped" %% "sbt-less" % "0.5")
 
+addSbtPlugin("com.github.mpeltonen" % "sbt-idea" % "1.5.1")
