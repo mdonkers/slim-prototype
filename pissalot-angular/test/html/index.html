@@ -1,0 +1,64 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>Pissalot Dashboard</title>
+
+    <!-- build:js scripts/modules.js -->
+    <script src="lib/components/jquery/jquery.min.js"></script>
+    <script src="lib/components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="lib/components/angular/angular.min.js"></script>
+    <script src="lib/components/angular-resource/angular-resource.min.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="js/pissalotApp.js"></script>
+    <script src="js/filters/pissalotFilters.js"></script>
+    <script src="js/directives/statsListDirective.js"></script>
+    <!-- Using alternative service going directly to the Cloudant CouchDB, 'mocks' directory is loaded as base -->
+    <script src="pissalotCouchService.js"></script>
+    <script src="js/controllers/pissalotController.js"></script>
+    <!-- endbuild -->
+
+    <link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+
+</head>
+<body ng-app="pissalotApp" ng-controller="pissalotController">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="container">
+    <div class="row spacer">&nbsp;</div>
+    <div class="row">
+        <div class="col-xs-12 col-md-8">&nbsp;</div>
+        <div class="col-xs-6 col-md-4"><img class="img-responsive" src="img/cc_logo_cmyk_w_out_claim.png"></div>
+    </div>
+    <div class="row spacer">&nbsp;</div>
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h2 class="panel-title">Top Scorers!</h2>
+        </div>
+
+        <!-- pissalot application root container -->
+        <stats-list list-type="topDuration" order-by="duration"></stats-list>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h2 class="panel-title">Latest Pees</h2>
+        </div>
+
+        <!-- pissalot application root container -->
+        <stats-list list-type="latest" order-by="start"></stats-list>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+app/lib/components/
+coverage/
+node_modules/
+dist
+.tmp
+.sass-cache
+test-results.xml
+test-results-e2e.xml

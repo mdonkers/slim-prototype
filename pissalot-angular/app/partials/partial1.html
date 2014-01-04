@@ -1,0 +1,16 @@
+<table class="table table-condensed">
+    <thead>
+    <tr>
+        <th>Sensor Id</th>
+        <th>Start</th>
+        <th>Duration</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in items | orderBy:'value.' + orderBy:reverse=true">
+        <td>{{item.value.sensorId}}</td>
+        <td>{{item.value.start | date:'dd/MM @ H:mm'}}</td>
+        <td>{{item.value.duration | msToSec | number | secAppendix}}</td>
+    </tr>
+    </tbody>
+</table>
