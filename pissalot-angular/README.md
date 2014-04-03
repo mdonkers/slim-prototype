@@ -1,3 +1,8 @@
+-- If not already installed, do these first --
+npm install -g bower
+npm install -g grunt-cli
+npm install -g karma
+
 Run "npm install"
 Run "bower install"
 Run "grunt"
